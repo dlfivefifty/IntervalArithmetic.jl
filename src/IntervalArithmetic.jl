@@ -1,7 +1,5 @@
 # This file is part of the IntervalArithmetic.jl package; MIT licensed
 
-__precompile__(true)
-
 module IntervalArithmetic
 
 import CRlibm
@@ -95,10 +93,6 @@ export
 
 function __init__()
     setrounding(BigFloat, RoundNearest)
-    if VERSION < v"0.7.0-DEV"
-        ## deprecated in 0.7
-        setrounding(Float64, RoundNearest)
-    end
 
     setprecision(Interval, 256)  # set up pi
     setprecision(Interval, Float64)
